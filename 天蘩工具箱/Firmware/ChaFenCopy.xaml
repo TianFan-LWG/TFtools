@@ -1,0 +1,42 @@
+﻿<Page x:Class="天蘩工具箱.Firmware.ChaFenCopy"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:天蘩工具箱.Firmware"
+      xmlns:Other="clr-namespace:天蘩工具箱.Other"
+      mc:Ignorable="d" 
+      d:DesignHeight="425" d:DesignWidth="690"
+      Title="ChaFenCopy" Loaded="Page_Loaded">
+    <StackPanel>
+        <Label FontSize="16">源文件夹：</Label>
+        <TextBox Name="txtbPath1" IsReadOnly="True" TextWrapping="NoWrap" Margin="20,0" FontSize="16" TextChanged="txtbPath1_TextChanged"/>
+        <Button Name="btnSource" HorizontalAlignment="Right" Margin="20,10" FontSize="16" Click="btnSource_Click">选择源文件夹</Button>
+        <Label FontSize="16">目标文件夹：</Label>
+        <TextBox Name="txtbPath2" IsReadOnly="True" TextWrapping="NoWrap" Margin="20,0" FontSize="16" TextChanged="txtbPath2_TextChanged"/>
+        <Button Name="btnGoal" HorizontalAlignment="Right" Margin="20,10" FontSize="16" Click="btnGoal_Click">选择目标文件夹</Button>
+        <Grid x:Name="grid1" Height="230">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Name="datagrid">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="文 件 名"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Size}" Header="大 小"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding AlterTime}" Header="时 间"></DataGridTextColumn>
+                    <DataGridCheckBoxColumn Binding="{Binding NoCopy}" Header="不拷贝项"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Other:WaitBar Visibility="Hidden" x:Name="wb" Height="150" AutoSetProgress="False"/>
+            <StackPanel Grid.Column="1">
+                <Button x:Name="btnCopy" Margin="20" FontSize="16" Width="100" Height="50" FontWeight="Bold" Content=">>拷 贝" Click="btnCopy_Click" BorderBrush="{x:Null}" BorderThickness="0"/>
+                <ComboBox x:Name="comboxMode" SelectedIndex="0" FontSize="14" Width="120">
+                    <ComboBoxItem Tag="时间较新的源文件将覆盖旧的同名目标文件，其余情况的同名文件将不会被拷贝">时差分拷贝</ComboBoxItem>
+                    <ComboBoxItem Tag="文件大小较大的源文件将覆盖较小的目标文件，其余情况的同名文件将不会被拷贝">大小差分拷贝</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="txtbExplain" Margin="10" FontSize="14" IsReadOnly="True" TextWrapping="Wrap" Text="{Binding ElementName=comboxMode,Path=SelectedItem.Tag}"></TextBox>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Page>

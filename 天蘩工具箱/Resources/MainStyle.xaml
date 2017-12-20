@@ -1,0 +1,369 @@
+﻿<ResourceDictionary 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--圆按钮-->
+    <Style x:Key="GlassButton" TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <!-- Background Layer -->
+                        <Ellipse Fill="{TemplateBinding Background}"/>
+                        <!-- Refraction Layer -->
+                        <Ellipse x:Name="RefractionLayer">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.5" ScaleY="1.5"/>
+                                            <TranslateTransform X="0.02" Y="0.3"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Offset="1" Color="#00000000"/>
+                                    <GradientStop Offset="0.4" Color="#FFFFFFFF"/>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <!-- Reflection Layer -->
+                        <Path x:Name="ReflectionLayer" VerticalAlignment="Top" Stretch="Fill">
+                            <Path.RenderTransform>
+                                <ScaleTransform ScaleY="0.5" />
+                            </Path.RenderTransform>
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure IsClosed="True" StartPoint="98.999,45.499">
+                                        <BezierSegment Point1="98.999,54.170" Point2="89.046,52.258" Point3="85.502,51.029"/>
+                                        <BezierSegment
+                                    IsSmoothJoin="True"
+                                    Point1="75.860,47.685"
+                                    Point2="69.111,45.196"
+                                    Point3="50.167,45.196"/>
+                                        <BezierSegment Point1="30.805,45.196" Point2="20.173,47.741" Point3="10.665,51.363"/>
+                                        <BezierSegment
+                                    IsSmoothJoin="True"
+                                    Point1="7.469,52.580"
+                                    Point2="1.000,53.252"
+                                    Point3="1.000,44.999"/>
+                                        <BezierSegment Point1="1.000,39.510" Point2="0.884,39.227" Point3="2.519,34.286"/>
+                                        <BezierSegment
+                                    IsSmoothJoin="True"
+                                    Point1="9.106,14.370"
+                                    Point2="27.875,0"
+                                    Point3="50,0"/>
+                                        <BezierSegment Point1="72.198,0" Point2="91.018,14.466" Point3="97.546,34.485"/>
+                                        <BezierSegment
+                                    IsSmoothJoin="True"
+                                    Point1="99.139,39.369"
+                                    Point2="98.999,40.084"
+                                    Point3="98.999,45.499"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                            <Path.Fill>
+                                <RadialGradientBrush GradientOrigin="0.498,0.526">
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform
+                                       CenterX="0.5"
+                                       CenterY="0.5"
+                                       ScaleX="1"
+                                       ScaleY="1.997"/>
+                                            <TranslateTransform X="0" Y="0.5"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Offset="1" Color="#FFFFFFFF"/>
+                                    <GradientStop Offset="0.85" Color="#92FFFFFF"/>
+                                    <GradientStop Offset="0" Color="#00000000"/>
+                                </RadialGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <!-- ContentPresenter -->
+                        <ContentPresenter Margin="0,2,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="RefractionLayer" Property="Fill">
+                                <Setter.Value>
+                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform
+                                          CenterX="0.5"
+                                          CenterY="0.5"
+                                          ScaleX="1.5"
+                                          ScaleY="1.5"/>
+                                                <TranslateTransform X="0.02" Y="0.3"/>
+                                            </TransformGroup>
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Offset="1" Color="#00000000"/>
+                                        <GradientStop Offset="0.45" Color="#FFFFFFFF"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="ReflectionLayer" Property="Fill">
+                                <Setter.Value>
+                                    <RadialGradientBrush GradientOrigin="0.498,0.526">
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform
+                                          CenterX="0.5"
+                                          CenterY="0.5"
+                                          ScaleX="1"
+                                          ScaleY="1.997"/>
+                                                <TranslateTransform X="0" Y="0.5"/>
+                                            </TransformGroup>
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Offset="1" Color="#FFFFFFFF"/>
+                                        <GradientStop Offset="0.85" Color="#BBFFFFFF"/>
+                                        <GradientStop Offset="0" Color="#00000000"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="RefractionLayer" Property="Fill">
+                                <Setter.Value>
+                                    <RadialGradientBrush GradientOrigin="0.496,1.052">
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform
+                                          CenterX="0.5"
+                                          CenterY="0.5"
+                                          ScaleX="1.5"
+                                          ScaleY="1.5"/>
+                                                <TranslateTransform X="0.02" Y="0.3"/>
+                                            </TransformGroup>
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Offset="1" Color="#00000000"/>
+                                        <GradientStop Offset="0.3" Color="#FFFFFFFF"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="ReflectionLayer" Property="Fill">
+                                <Setter.Value>
+                                    <RadialGradientBrush GradientOrigin="0.498,0.526">
+                                        <RadialGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform
+                                          CenterX="0.5"
+                                          CenterY="0.5"
+                                          ScaleX="1"
+                                          ScaleY="1.997"/>
+                                                <TranslateTransform X="0" Y="0.5"/>
+                                            </TransformGroup>
+                                        </RadialGradientBrush.RelativeTransform>
+                                        <GradientStop Offset="1" Color="#CCFFFFFF"/>
+                                        <GradientStop Offset="0.85" Color="#66FFFFFF"/>
+                                        <GradientStop Offset="0" Color="#00000000"/>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--圆按钮2-->
+    <Style x:Key="RoundedGelButton" TargetType="Button">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Name="GelBackground" StrokeThickness="0.5" Fill="Black">
+                            <Ellipse.Stroke>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Offset="0" Color="#ff7e7e7e"></GradientStop>
+                                    <GradientStop Offset="1" Color="Black"></GradientStop>
+                                </LinearGradientBrush>
+                            </Ellipse.Stroke>
+                        </Ellipse>
+                        <Ellipse Margin="15,5,15,50">
+                            <Ellipse.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Offset="0" Color="#aaffffff"></GradientStop>
+                                    <GradientStop Offset="1" Color="Transparent"></GradientStop>
+                                </LinearGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter Name="GelButtonContent" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                          Content="{TemplateBinding Content}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Ellipse.Fill" TargetName="GelBackground">
+                                <Setter.Value>
+                                    <RadialGradientBrush>
+                                        <GradientStop Offset="0" Color="Lime"></GradientStop>
+                                        <GradientStop Offset="1" Color="DarkGreen"></GradientStop>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Ellipse.Fill" TargetName="GelBackground">
+                                <Setter.Value>
+                                    <RadialGradientBrush>
+                                        <GradientStop Offset="0" Color="#ffcc34"></GradientStop>
+                                        <GradientStop Offset="1" Color="#cc9900"></GradientStop>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--窗体背景-->
+    <ControlTemplate x:Key="btnBackground_Template" TargetType="{x:Type Button}">
+        <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="0" CornerRadius="0,20,0,20" Name="PART_Background">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="White" />
+                    <GradientStop Color="#FFEE7511" Offset="0.98" />
+                    <GradientStop Color="#FF06FFE8" />
+                    <GradientStop Color="#7F4BE21F" Offset="0.52"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Border.ToolTip>
+                <TextBlock>
+                    更换窗体背景图片<LineBreak/>右键清除背景图片
+                </TextBlock>
+            </Border.ToolTip>
+        </Border>
+        <ControlTemplate.Triggers>
+            <!--鼠标移动到控件上时-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="White" />
+                            <GradientStop Color="#FFEE7511" Offset="0.98" />
+                            <GradientStop Color="#FF06FFE8" />
+                            <GradientStop Color="#7FDCFF00" Offset="0.356"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <!--鼠标点击时-->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="White" />
+                            <GradientStop Color="#FF1194EE" Offset="0.98" />
+                            <GradientStop Color="#FF06FFE8" />
+                            <GradientStop Color="#7F00FF0C" Offset="0.356"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--插件-->
+    <ControlTemplate x:Key="btnMods_Template" TargetType="{x:Type Button}">
+        <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="0" CornerRadius="25,0,25,0" Name="PART_Background" >
+            <Border.Background>
+                <SolidColorBrush Color="#FF2CF123"></SolidColorBrush>
+            </Border.Background>
+            <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#FFFFC90F"></SolidColorBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#FFEA623A"></SolidColorBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--文件-->
+    <ControlTemplate x:Key="btnFile_Template" TargetType="{x:Type Button}">
+        <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="0" CornerRadius="20,20,20,20" Name="PART_Background" Background="#FFD1CACA">
+            <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <!--鼠标移动到控件上时-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#FFF5EEBC"></SolidColorBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <!--鼠标点击时-->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#FFFFCF67"></SolidColorBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <!--最小化-->
+    <ControlTemplate x:Key="btnHide_template" TargetType="{x:Type Button}">
+        <Border Background="{x:Null}" BorderThickness="3">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                    <GradientStop Offset="0" Color="White"/>
+                    <GradientStop Color="#FFC80000" Offset="1"/>
+                    <GradientStop Color="Cyan" Offset="0.5"/>
+                    <GradientStop Color="#FF32FF04" Offset="0.25"/>
+                    <GradientStop Color="#FF0230FF" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <ContentPresenter Content="{TemplateBinding Content}"></ContentPresenter>
+            <Border.ToolTip>
+                <TextBlock>
+                    <Run Background="#FF00FF96">隐藏到托盘</Run><LineBreak/>
+                    <Run Background="#FFFFC800" Foreground="Blue">右键关于</Run>
+                </TextBlock>
+            </Border.ToolTip>
+        </Border>
+    </ControlTemplate>
+    <!--新开窗体-->
+    <ControlTemplate x:Key="btnNewWin_Template" TargetType="{x:Type Button}">
+        <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="2" CornerRadius="15" Name="PART_Background" Background="{TemplateBinding Control.Background}">
+            <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Border.ToolTip >
+                <Label>将当前打开的页面移到新的窗口上显示</Label>
+            </Border.ToolTip>
+        </Border>
+        <ControlTemplate.Triggers>
+            <!--鼠标移动到控件上时-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#FFFBBD38"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <!--鼠标点击时-->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Border.Background" TargetName="PART_Background">
+                    <Setter.Value>
+                        <SolidColorBrush Color="#FF09FFD2"></SolidColorBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</ResourceDictionary>

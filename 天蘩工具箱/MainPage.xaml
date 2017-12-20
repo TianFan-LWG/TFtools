@@ -1,0 +1,58 @@
+﻿<Page x:Name="mainPage" x:Class="天蘩工具箱.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:天蘩工具箱"
+      mc:Ignorable="d" 
+      d:DesignHeight="425" d:DesignWidth="690"
+      Title="MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="66*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                <GradientStop Color="#FF0000FD" Offset="0"/>
+                <GradientStop Color="Yellow" Offset="1"/>
+                <GradientStop Color="#FF17D439" Offset="0.75"/>
+                <GradientStop Color="Cyan" Offset="0.5"/>
+                <GradientStop Color="#FF0096FE" Offset="0.25"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="label"  Content="首 页" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Text="天 蘩 工 具 箱" VerticalAlignment="Top" Margin="-20" Visibility="Visible" FontWeight="Bold" FontFamily="华文行楷"/>
+        <Grid Margin="150,0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition SharedSizeGroup="Row"/>
+                    <RowDefinition SharedSizeGroup="Row"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" RenderTransformOrigin="1,0.5">
+                    <Rectangle.Fill>
+                        <VisualBrush Visual="{Binding ElementName=textBlock}"></VisualBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle Grid.Row="1" RenderTransformOrigin="1,0.5">
+                    <Rectangle.Fill>
+                        <VisualBrush Visual="{Binding ElementName=textBlock}"></VisualBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.OpacityMask>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0.2" Color="Transparent"></GradientStop>
+                            <GradientStop Offset="1" Color="#60ffffff"></GradientStop>
+                        </LinearGradientBrush>
+                    </Rectangle.OpacityMask>
+                    <Rectangle.RenderTransform>
+                        <ScaleTransform ScaleY="-1"></ScaleTransform>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
