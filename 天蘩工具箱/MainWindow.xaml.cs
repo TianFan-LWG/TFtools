@@ -339,15 +339,19 @@ namespace 天蘩工具箱
 
         private void ClearBackground()
         {
-            if (File.Exists("背景.jpg"))
+            var imgs = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "背景图片.*");
+            if (imgs.Length>0)
             {
-                try
+                foreach (string str in imgs)
                 {
-                    File.Delete("背景.jpg");
-                }
-                catch
-                {
-                    MessageBox.Show("清除失败！请手动删除本程序目录下的 背景.jpg文件后再重启工具箱即可。。。");
+                    try
+                    {
+                        File.Delete(str);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("清除失败！请手动删除本程序目录下的 背景.jpg文件后再重启工具箱即可。。。");
+                    }
                 }
                 Background = new SolidColorBrush(Color.FromRgb(230, 230, 170));
             }

@@ -391,6 +391,12 @@
             唯一窗体
             </summary>
         </member>
+        <member name="M:天蘩工具箱.MainWindow.setBackground(System.String)">
+            <summary>
+            设置背景图片
+            </summary>
+            <param name="path"></param>
+        </member>
         <member name="M:天蘩工具箱.MainWindow.InitializeComponent">
             <summary>
             InitializeComponent
