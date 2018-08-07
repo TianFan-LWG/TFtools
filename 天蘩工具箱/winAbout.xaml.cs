@@ -92,5 +92,10 @@ namespace 天蘩工具箱
             //label.Foreground = Brushes.Red;
             #endregion
         }
+
+        private void hlinkGitUri_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/chunTF/TFtools");
+        }
     }
 }

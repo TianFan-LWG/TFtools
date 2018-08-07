@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>天蘩工具箱</name>
+    </assembly>
+    <members>
+        <member name="T:天蘩工具箱.Firmware.ChaFenCopy">
+            <summary>
+            ChaFenCopy.xaml 的交互逻辑
+            </summary>
+            <summary>
+            ChaFenCopy
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ChaFenCopy.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ChaFenCopy.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Firmware.Fileinfo_tf.LastWriteTime">
+            <summary>
+            最后修改时间（string）
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Firmware.Fileinfo_tf.Length">
+            <summary>
+            大小（byte）
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Firmware.Fileinfo_tf.Name">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Firmware.Fileinfo_tf.AlterTime">
+            <summary>
+            最后修改时间(datetime)
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Firmware.Fileinfo_tf.Size">
+            <summary>
+            大小（string）
+            </summary>
+        </member>
+        <member name="F:天蘩工具箱.Firmware.Fileinfo_tf.noCopy">
+            <summary>
+            不拷贝标记
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.Firmware.LoadFirmware">
+            <summary>
+            加载固件
+            </summary>
+        </member>
+        <member name="F:天蘩工具箱.Firmware.LoadFirmware.NameList">
+            <summary>
+            固件名列表
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.LoadFirmware.InitializeNameList">
+            <summary>
+            初始化固件列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.LoadFirmware.GetPage(System.String)">
+            <summary>
+            返回页面
+            </summary>
+            <param name="name">页面名</param>
+            <returns>页面</returns>
+        </member>
+        <member name="T:天蘩工具箱.Firmware.MD5Calculate">
+            <summary>
+            MD5Calculate.xaml 的交互逻辑
+            </summary>
+            <summary>
+            MD5Calculate
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.MD5Calculate.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.MD5Calculate.Contrast">
+            <summary>
+            对比
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.MD5Calculate.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.Firmware.ModsManage">
+            <summary>
+            插件管理
+            </summary>
+            <summary>
+            ModsManage
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ModsManage.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ModsManage.GetInstance">
+            <summary>
+            返回当前实例
+            </summary>
+            <returns>实例</returns>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ModsManage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.Firmware.ToolsPage">
+            <summary>
+            插件列表
+            </summary>
+            <summary>
+            ToolsPage
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Firmware.ToolsPage.Tl">
+            <summary>
+            返回Tools实例
+            </summary>
+        </member>
+        <member name="E:天蘩工具箱.Firmware.ToolsPage.ModbtnClick">
+            <summary>
+            点击插件名事件
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ToolsPage.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ToolsPage.Refresh">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Firmware.ToolsPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.Other.UserControl1">
+            <summary>
+            UserControl1.xaml 的交互逻辑
+            </summary>
+            <summary>
+            UserControl1
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Other.UserControl1.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.Other.WaitBar">
+            <summary>
+            WaitBar.xaml 的交互逻辑
+            </summary>
+            <summary>
+            WaitBar
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Other.WaitBar.AutoSetProgress">
+            <summary>
+            自动设置进度值
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Other.WaitBar.RollColor">
+            <summary>
+            滚动颜色
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Other.WaitBar.AnnulusBrush">
+            <summary>
+            圆环画刷
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Other.WaitBar.FillColor1">
+            <summary>
+            填充颜色1（默认为透明）
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Other.WaitBar.FillColor2">
+            <summary>
+             填充颜色2
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Other.WaitBar.Progress">
+            <summary>
+            进度值（0-100）
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Other.WaitBar.SProgress">
+            <summary>
+            进度值（0.00%）
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Other.WaitBar.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Other.WaitBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.Tools">
+            <summary>
+            插件处理程序
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Tools.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Tools.GetTools">
+            <summary>
+            返回Tools实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:天蘩工具箱.Tools.ModInfoList">
+            <summary>
+            插件信息列表
+            </summary>
+        </member>
+        <member name="F:天蘩工具箱.Tools.setFrmToolValue">
+            <summary>
+            显示页面
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Tools.LoadMod">
+            <summary>
+            加载插件
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.Tools.LoadModPage(System.String)">
+            <summary>
+            加载插件页面
+            </summary>
+            <param name="Pname">插件名</param>
+        </member>
+        <member name="T:天蘩工具箱.winAbout">
+            <summary>
+            winAbout.xaml 的交互逻辑
+            </summary>
+            <summary>
+            winAbout
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.winAbout.showWinAbout(System.Double,System.Double)">
+            <summary>
+            返回关于窗体实例
+            </summary>
+            <param name="t">Top坐标</param>
+            <param name="l">Left坐标</param>
+            <returns></returns>
+        </member>
+        <member name="M:天蘩工具箱.winAbout.Exit">
+            <summary>
+            退出
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.winAbout.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.App">
+            <summary>
+            App.xaml 的交互逻辑
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.ExitOrHidden">
+            <summary>
+            退出操作
+            </summary>
+            <summary>
+            ExitOrHidden
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.ExitOrHidden.#ctor">
+            <summary>
+            确认退出
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.ExitOrHidden.#ctor(System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="l">左</param>
+            <param name="t">上</param>
+        </member>
+        <member name="F:天蘩工具箱.ExitOrHidden.bl">
+            <summary>
+            是否关闭或最小化
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.ExitOrHidden.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.HideToNotify">
+            <summary>
+            最小化到托盘
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.HideToNotify.useHideToNotify">
+            <summary>
+            使用最小化到托盘。（先设置点击方法）
+            </summary>
+            <returns>当前实例</returns>
+        </member>
+        <member name="M:天蘩工具箱.HideToNotify.setMenu">
+            <summary>
+            关联菜单
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.MainPage">
+            <summary>
+            MainPage.xaml 的交互逻辑
+            </summary>
+            <summary>
+            MainPage
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.MainPage.#ctor">
+            <summary>
+            主页
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.MainPage.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.MainWindow">
+            <summary>
+            主窗口
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.MainWindow.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.MainWindow.TF_ToolBox_Initialized(System.Object,System.EventArgs)">
+            <summary>
+            窗体初始化前
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:天蘩工具箱.MainWindow.soleWindow">
+            <summary>
+            唯一窗体
+            </summary>
+        </member>
+        <member name="M:天蘩工具箱.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:天蘩工具箱.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Properties.Resources.ModInfo">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Properties.Resources.tf64x64">
+            <summary>
+              查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:天蘩工具箱.Properties.Resources.背景">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

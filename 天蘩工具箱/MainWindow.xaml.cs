@@ -31,6 +31,7 @@ namespace 天蘩工具箱
         {
             Thread td = new Thread(new ThreadStart(soleWindow));
             td.Start();
+            td.Join();
             InitializeComponent();
             HideToNotify.ExitClick = Exit;
             HideToNotify.ShowClick = htnShow;
@@ -131,6 +132,7 @@ namespace 天蘩工具箱
                 //如果老的GUID==新的GUID并且新的Pid！=老的Pid则关闭当前正在初始化的实例的所有子进程；
                 if (nGuid.Equals(oGuid) && nPid != oPid)
                 {
+                    htn.Dispose();
                     Process.GetCurrentProcess().Kill();
                 }
             }
@@ -256,12 +258,12 @@ namespace 天蘩工具箱
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = false;
             ofd.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop);//获取当前用户桌面路径
-            ofd.Filter = "jpg图片|*.jpg";
+            ofd.Filter = "背景图片|*.jpg;*.png;*.gif;*.jpeg;*.bmp";
             ofd.ShowDialog();
             //拷贝图片
             if (File.Exists(ofd.FileName))
             {
-                File.Copy(ofd.FileName, "背景.jpg", true);
+                File.Copy(ofd.FileName, "背景图片"+Path.GetExtension(ofd.FileName), true);
                 #region 使用流copy
                 //using (Stream stream = ofd.OpenFile())
                 //{
@@ -280,11 +282,17 @@ namespace 天蘩工具箱
                 setBackground(ofd.FileName);
             }
         }
+        /// <summary>
+        /// 设置背景图片
+        /// </summary>
+        /// <param name="path"></param>
         private void setBackground(string path)
         {
             if (string.IsNullOrEmpty(path))
             {
-                path = "背景.jpg";
+                var imgs=Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory,"背景图片.*");
+                if(imgs.Length>0)
+                path = imgs[0];
             }
             if (File.Exists(path))
             {

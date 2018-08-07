@@ -18,7 +18,10 @@
             </TextBlock>
             <Grid>
                 <TextBlock x:Name="txtblExplain" VerticalAlignment="Top" Margin="10">
-                <Run Text="为自己写的工具箱——天蘩"/><LineBreak/><LineBreak/>
+                <Run Text="为自己写的工具箱——天蘩" FontWeight="Bold"/><LineBreak/>
+                <Run FontWeight="Bold">———————————————</Run>
+                <Hyperlink x:Name="hlinkGitUri" Foreground="#FF0001FF" ToolTip="GitHub源码路径" FontSize="14" Click="hlinkGitUri_Click">Git源码</Hyperlink>
+                <LineBreak/>
                 <Run Text="插件为：WPF用户控件库 Page页面"/><LineBreak/>
                 <Run Text="最大宽度：700px"/><LineBreak/>
                 <Run Text="最大高度：430px"/><LineBreak/><LineBreak/>
@@ -37,7 +40,7 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnSourceCode" Content="源 码" Grid.Column="0" Margin="10,0,10,0" Click="btnSourceCode_Click" FontSize="16"></Button>
+                <Button x:Name="btnSourceCode" Content="百度云盘源码" Grid.Column="0" Margin="10,0,10,0" Click="btnSourceCode_Click" FontSize="16"></Button>
                 <Button x:Name="btnExit" Content="关 闭" Grid.Column="1" Margin="10,0,10,0" VerticalAlignment="Top" Click="btnExit_Click" FontSize="16"/>
             </Grid>
         </StackPanel>

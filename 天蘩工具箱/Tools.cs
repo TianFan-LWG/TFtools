@@ -76,6 +76,7 @@ namespace 天蘩工具箱
             //释放ModInfo.dll文件到mod文件夹
             string ModInfoPath_mod = Path.Combine(modpath, "ModInfo.dll");
             string configPath = Path.Combine(modpath, "加载状态.tfconfig");
+            //如果ModInfo文件不存在则释放文件
             if (!File.Exists(ModInfoPath_mod))
             {
                 using (FileStream fs = new FileStream(ModInfoPath_mod, FileMode.Create))
