@@ -22,9 +22,9 @@
             </Grid.ColumnDefinitions>
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Name="datagrid">
                 <DataGrid.Columns>
-                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="文 件 名"></DataGridTextColumn>
-                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Size}" Header="大 小"></DataGridTextColumn>
-                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding AlterTime}" Header="时 间"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="文件名"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding Size}" Header="源文件大小"></DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding AlterTime}" Header="源文件修改时间"></DataGridTextColumn>
                     <DataGridCheckBoxColumn Binding="{Binding NoCopy}" Header="不拷贝项"/>
                 </DataGrid.Columns>
             </DataGrid>

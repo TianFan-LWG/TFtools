@@ -59,19 +59,80 @@ namespace 天蘩工具箱.Firmware
                 return null;
             }
         }
-
+        //拷贝
         private void btnCopy_Click(object sender, RoutedEventArgs e)
         {
-            //拷贝
+            string sourcePath = txtbPath1.Text;//源文件路径
+            string targetPath = txtbPath2.Text;//目标文件路径
+            List<string> filelist = new List<string>();//文件名列表
+            //记录所有需要拷贝的文件
             foreach (Fileinfo_tf item in datagrid.Items)
             {
-                MessageBox.Show(item.Name.ToString());
+                //如果不拷贝为false则获取拷贝文件名
+                if (!item.NoCopy)
+                {
+                    filelist.Add(item.Name);
+                }
+            }
+            //如果有需要拷贝的文件并且源文件夹和目标文件夹存在则执行拷贝
+            bool bl = false;
+            if (Directory.Exists(sourcePath))
+            {
+                bl = true;
+                if (Directory.Exists(targetPath))
+                {
+                    bl = true;
+                    if (filelist.Count > 0)
+                    {
+                        bl = true;
+                    }
+                    else
+                    {
+                        bl = false;
+                        MessageBox.Show("没有需要拷贝的文件！", "错误提示");
+                    }
+                }
+                else
+                {
+                    bl = false;
+                    MessageBox.Show("目标文件夹不存在！", "错误提示");
+                }
+            }
+            else
+            {
+                bl = false;
+                MessageBox.Show("源文件夹不存在！", "错误提示");
+            }
+            if (bl)
+            {
+                ThreadPool.QueueUserWorkItem((obj) =>
+                {
+                    foreach (string name in filelist)
+                    {
+                        using (FileStream rfs = new FileStream(Path.Combine(sourcePath, name), FileMode.Open))//读取流
+                    {
+                            using (FileStream wfs = new FileStream(Path.Combine(targetPath, name), FileMode.Create))//写入流
+                        {
+                                byte[] buffer = new byte[1024 * 1024];
+                                int byteCount = rfs.Read(buffer, 0, buffer.Length);
+                                while (byteCount > 0)
+                                {
+                                    wfs.Write(buffer, 0, byteCount);
+                                    byteCount = rfs.Read(buffer, 0, buffer.Length);
+                                }
+                            }
+                        }
+                    }
+                    MessageBox.Show("文件拷贝完成");
+                    this.Dispatcher.Invoke(new Action(() => { Contrast();}));//刷新列表
 
+                    });
             }
         }
 
         private void txtbPath1_TextChanged(object sender, TextChangedEventArgs e)
         {
+            //加载文件列表
             if (Directory.Exists(txtbPath1.Text))
             {
                 btnGoal.Visibility = Visibility.Visible;
@@ -123,13 +184,14 @@ namespace 天蘩工具箱.Firmware
         private void txtbPath2_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtbPath2.Text))
-                Method0();
+                Contrast();
         }
 
-        private void Method0()
+        private void Contrast()
         {
             if (Directory.Exists(txtbPath2.Text))
             {
+                //在对比过程中隐藏模式选择框
                 comboxMode.Visibility = Visibility.Hidden;
                 ThreadPool.QueueUserWorkItem(new WaitCallback((obj) =>
                 {
@@ -184,7 +246,7 @@ namespace 天蘩工具箱.Firmware
         {
             combSelectedIndex = comboxMode.SelectedIndex;
             if (!string.IsNullOrEmpty(txtbPath2.Text))
-                Method0();
+                Contrast();
         }
     }
     class Fileinfo_tf : INotifyPropertyChanged
